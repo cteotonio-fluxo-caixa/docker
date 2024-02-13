@@ -1,0 +1,55 @@
+version: '3.8'
+
+name: "fluxo-de-caixa"
+services:
+  splunk_server:
+    # image: ${SPLUNK_IMAGE:-splunk/splunk:latest}
+    # container_name: splunk_server
+    # environment:
+    #   - SPLUNK_START_ARGS=--accept-license
+    #   - SPLUNK_PASSWORD=Cade@123
+    #  # - SPLUNK_LICENSE_URI=Free
+    #   - SPLUNK_CMD= 'chmod +x ./startup.sh; ./startup.sh start;'
+    # volumes:
+    #   #- ./splunk-data:/opt/splunk/var/lib/splunk
+    #   - ./splunk/startup.sh:/docker-entrypoint-init.d/startup.sh
+    # working_dir: /docker-entrypoint-init.d/
+    # #command: sh -c ' chmod +x /docker-entrypoint-init.d/startup.sh; /docker-entrypoint-init.d/startup.sh && /opt/splunk/bin/splunk start;'
+    # ports:
+    #   - 8000:8000
+
+  sql_server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sql_server_container
+    hostname: sql_server
+    mem_limit: 3g
+    mem_reservation: 3g
+    environment:
+      SA_PASSWORD: "Cade@123"  # Defina uma senha forte para o SQL Server
+      ACCEPT_EULA: "Y"
+    volumes:
+      - /var/opt/mssql
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    ports:
+      - "1433:1433"  # Encaminhe a porta 1433 do host para a porta 1433 do contêiner
+    expose:
+      - 1433
+    networks:
+      - backend
+
+  microsservice_transacoes:
+    build:
+      context: ../../backend-transacoes/src/SlnTransacoes/  # Diretório onde está localizado o Dockerfile do serviço
+      dockerfile: Transacoes.API/Dockerfile
+    container_name: microsservice_transacoes
+    ports:
+      - "8080:8080"  # Encaminhe a porta 8080 do contêiner para a porta 8080 do host
+    networks:
+      - backend
+   
+
+networks:
+  backend:
+    driver: bridge

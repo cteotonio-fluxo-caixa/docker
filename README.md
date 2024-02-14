@@ -13,10 +13,15 @@ Repositório com arquivos docker-compose.yml e scripts de implantação para fac
 docker-compose up -d
 ```
 
+3) Ao final do carregamento dos conteiners você terá os seguintes recursos
+  3.1) SQL SERVER rodando na por 1433 (Porta padrão)
+  3.2) Serviço de Controle de Transações disponível na URL (htto://localhost:8080) 
+
+
 ## ⚠️ Problemas enfrentados
 
 ### Erro ao subir containers:
-Ao digitar o comando docker-compose up -d recebo a mensagem de erro: **services.splunk_server must be a mappin**
+Ao digitar o comando **docker-compose up -d** recebo a mensagem de erro: **services.splunk_server must be a mappin**
 * Como solucionar: Certifique-se que o Docker esteja em execução e tente novamente.
 
 ### Erro ao subir container do SQL SERVER:

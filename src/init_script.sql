@@ -14,8 +14,8 @@ GO
 IF NOT EXISTS(SELECT * FROM SYS.TABLES WHERE NAME = 'CategoriasTransacoes') BEGIN 
     CREATE TABLE MetodosPagamento (
         MetodoPagamentoId UNIQUEIDENTIFIER PRIMARY KEY,
-        Nome NVARCHAR(100) NOT NULL UNIQUE,
-        Descricao NVARCHAR(255)
+        Nome NVARCHAR(20) NOT NULL UNIQUE,
+        Descricao NVARCHAR(50)
     );
 
 END 
@@ -25,8 +25,8 @@ IF NOT EXISTS(SELECT * FROM SYS.TABLES WHERE NAME = 'CategoriasTransacoes') BEGI
 
     CREATE TABLE CategoriasTransacoes (
         CategoriaId UNIQUEIDENTIFIER PRIMARY KEY,
-        Nome NVARCHAR(100) NOT NULL UNIQUE,
-        Descricao NVARCHAR(255)
+        Nome NVARCHAR(20) NOT NULL UNIQUE,
+        Descricao NVARCHAR(50)
     );
 
 END 

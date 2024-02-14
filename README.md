@@ -16,8 +16,8 @@ docker-compose up -d
 ## ⚠️ Problemas enfrentados
 
 ### Erro ao subir containers:
-Ao digitar o comando docker-compose up -d recebo a mensagem de erro: services.splunk_server must be a mappin
-* Como solucionar: Certifique-se que o Docker estaja em execução e tente novamente.
+Ao digitar o comando docker-compose up -d recebo a mensagem de erro: **services.splunk_server must be a mappin**
+* Como solucionar: Certifique-se que o Docker esteja em execução e tente novamente.
 
 ### Erro ao subir container do SQL SERVER:
 Um dos problemas mais comuns é a memoria que esta imagem requer (2GB)

@@ -2,7 +2,7 @@ version: '3.8'
 
 name: "fluxo-de-caixa"
 services:
-  splunk_server:
+    #splunk_server:
     # image: ${SPLUNK_IMAGE:-splunk/splunk:latest}
     # container_name: splunk_server
     # environment:
@@ -48,7 +48,16 @@ services:
       - "8080:8080"  # Encaminhe a porta 8080 do contêiner para a porta 8080 do host
     networks:
       - backend
-   
+
+  microsservice_relatorios:
+    build:
+      context: ../../backend-relatorios/src/SlnFluxoCaixa.Relatorio.API/  # Diretório onde está localizado o Dockerfile do serviço
+      dockerfile: FluxoCaixa.Relatorio.API/Dockerfile
+    container_name: microsservice_relatorios
+    ports:
+      - "8082:8082"  # Encaminhe a porta 8080 do contêiner para a porta 8080 do host
+    networks:
+      - backend   
 
 networks:
   backend:

@@ -6,16 +6,16 @@ Repositório com arquivos docker-compose.yml e scripts de implantação para fac
 >[Pagina inicial](https://github.com/cteotonio-fluxo-caixa)
 
 ## Como rodar o projeto ✅
-1) Em seu Terminal navegue até a pasta clonada deste repositório
-2) Dentro da pasta src digit o seguinte comando
+1. Em seu Terminal navegue até a pasta clonada deste repositório
+2. Dentro da pasta src digit o seguinte comando
 
 ```
 docker-compose up -d
 ```
 
-3) Ao final do carregamento dos conteiners você terá os seguintes recursos
-  3.1) SQL SERVER rodando na por 1433 (Porta padrão)
-  3.2) Serviço de Controle de Transações disponível na URL (htto://localhost:8080) 
+3. Ao final do carregamento dos conteiners você terá os seguintes recursos
+- SQL SERVER rodando na por 1433 (Porta padrão)
+- Serviço de Controle de Transações disponível na URL (http://localhost:8080) 
 
 
 ## ⚠️ Problemas enfrentados

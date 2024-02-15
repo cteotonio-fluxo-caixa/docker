@@ -7,10 +7,10 @@ Repositório com arquivos docker-compose.yml e scripts de implantação para fac
 
 ## Como rodar o projeto ✅
 1. Em seu Terminal navegue até a pasta clonada deste repositório
-2. Dentro da pasta src digit o seguinte comando
+2. Dentro da pasta src digit o comando abaixo para compilar os projetos e carregar os containers
 
 ```
-docker-compose up -d
+docker-compose up --buld
 ```
 
 3. Ao final do carregamento dos conteiners você terá os seguintes recursos

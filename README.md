@@ -15,7 +15,8 @@ docker-compose up -d
 
 3. Ao final do carregamento dos conteiners você terá os seguintes recursos
 - SQL SERVER rodando na por 1433 (Porta padrão)
-- Serviço de Controle de Transações disponível na URL (http://localhost:8080) 
+- Serviço de Controle de Transações disponível na URL (http://localhost:8080)
+- Serviço de Relatórios disponível na URL (http://localhost:8082)
 
 
 ## ⚠️ Problemas enfrentados
